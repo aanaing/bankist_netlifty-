@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/logo.png" />
+    <title>Netlify App</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <p class="welcome">Login to get started</p>
+        <div>
+          <img src="./images/logo.png" alt="logo image" class="logo" />
+        </div>
+        <form>
+          <input type="text" class="text-box user" placeholder="User" />
+          <input type="text" class="text-box pin" placeholder="PIN" />
+          <button class="btn_login">&rarr;</button>
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main_container">
+        <div class="upper-part">
+          <div class="balance">
+            <p>Current Balance</p>
+            <span>As of 25/02/2023, 22:08</span>
+          </div>
+          <p class="user_balance">0000€</p>
+        </div>
+        <div class="grid--2--cols">
+          <div class="left--grid">
+            <div class="row">
+              <div>
+                <button class="text deposit">8 DEPOSIT</button>
+                <span class="date">12/03/2020</span>
+              </div>
+              <p>1300 €</p>
+            </div>
+            <div class="row">
+              <div>
+                <button class="text widthdrawl">8 WIDTHDRAWL</button>
+                <span class="date">12/03/2020</span>
+              </div>
+              <p>-1300€</p>
+            </div>
+          </div>
+          <div class="right--grid">
+            <!-- transfer card -->
+            <div class="operation transfer_card">
+              <p>Transfer money</p>
+              <div class="btn_box">
+                <input type="text" class="btn transfer_btn" />
+                <input type="number" class="btn amount_btn" />
+                <button class="arrow_btn">&rarr;</button>
+                <span class="bottom_text">Transfer To</span>
+                <span class="bottom_amount">Amount</span>
+              </div>
+            </div>
+            <!-- Request loan -->
+            <div class="operation loan_card">
+              <p>Request Loan</p>
+              <div class="btn_box loan_box">
+                <input type="number" class="btn amount_btn loan_amount" />
+                <button class="arrow_btn arrow_loan">&rarr;</button>
+                <span class="bottom_amount">Amount</span>
+              </div>
+            </div>
+            <!-- Close Account -->
+            <div class="operation close_card">
+              <p>Close Account</p>
+              <div class="btn_box">
+                <input type="text" class="btn transfer_btn close_btn" />
+                <input type="number" class="btn amount_btn close_btn" />
+                <button class="arrow_btn">&rarr;</button>
+                <span class="bottom_text">Confirm User</span>
+                <span class="bottom_amount">Confirm Pin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer_part">
+          <div>
+            <strong>IN</strong> <span class="number in"> 27035,20 €</span>
+          </div>
+          <div>
+            <strong>OUT</strong>
+            <span class="number out"> 1082,61 €</span>
+          </div>
+          <div>
+            <strong>INTEREST</strong>
+            <span class="number interest"> 323,46 €</span>
+          </div>
+          <div class="sort">⬆️ <strong>SORT</strong></div>
+          <div>You will be logout in <span class="date"> 2:00</span></div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+<!-- //In 27 035,20 € Out 1082,61 € Interest 323,46 € Transfer money Transfer to
+Amount Request loan Amount Close account Confirm user Confirm PIN You will be
+logged out in 07:18 -->

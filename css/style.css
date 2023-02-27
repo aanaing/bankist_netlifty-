@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: #edebeb;
+}
+/* NAV  */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+.text-box {
+  width: 8rem;
+  padding: 0.3rem 2rem;
+  display: inline-block;
+  text-align: center;
+  border-radius: 2rem;
+  margin-right: 2rem;
+  border: none;
+}
+.nav-container span {
+  font-size: 1rem;
+}
+.user:focus,
+.pin:focus {
+  outline: none;
+}
+.logo {
+  width: 40%;
+}
+.btn_login {
+  border: none;
+  font-size: 1.5rem;
+}
+
+/* MAIN  */
+.main_container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+
+  opacity: 0;
+}
+.upper-part {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 3rem 2rem 3rem;
+  font-size: 2rem;
+}
+.balance {
+  line-height: 0.8;
+}
+.upper-part span {
+  font-size: small;
+  color: #6e6e6e;
+}
+.grid--2--cols {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  padding: 0 3rem;
+  gap: 1rem;
+}
+.left--grid {
+  overflow: scroll;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.left--grid .row {
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  padding: 1rem 2rem;
+  align-items: center;
+  background-color: white;
+  border-bottom: 2px solid #eee;
+}
+.text {
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  margin-right: 1rem;
+}
+.deposit {
+  background-color: #69db7c;
+  text-transform: uppercase;
+}
+.widthdrawl {
+  background-color: red;
+  text-transform: uppercase;
+}
+
+/* RIGHT PART */
+.operation {
+  border-radius: 1rem;
+  padding: 1.5rem 3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.transfer_card {
+  background-color: #ffd43b;
+  font-size: 1.8rem;
+}
+
+.btn_box {
+  display: grid;
+  grid-template-columns: 8rem 8rem 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btn {
+  width: 100%;
+  border: none;
+  background-color: #ffec99;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+.btn:focus,
+.btn:focus {
+  outline: none;
+}
+.arrow_btn {
+  background-color: #fff;
+  width: 100%;
+  border: none;
+  padding: 0 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.bottom_text,
+.bottom_amount {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* LOAN CARD */
+.loan_card {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+.loan_box {
+  grid-template-columns: 8rem 4rem;
+}
+.loan_amount {
+  background-color: #d3f9d8;
+}
+
+/* Close Card */
+.close_card {
+  background-image: linear-gradient(
+    to left,
+    rgb(243, 11, 11),
+    rgb(238, 43, 29)
+  );
+
+  color: white;
+}
+.close_btn {
+  background-color: #f5c1c1;
+}
+
+/* FOOTER PART */
+.footer_part {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  padding: 2rem 3rem;
+}
+.number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: green;
+}
+.out {
+  color: red;
+}
