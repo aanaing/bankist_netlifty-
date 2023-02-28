@@ -112,6 +112,7 @@ body {
   grid-template-columns: 8rem 8rem 1fr;
   gap: 1rem;
   margin-top: 1rem;
+  /* transition: all 3s; */
 }
 .btn {
   width: 100%;
@@ -133,6 +134,9 @@ body {
   height: 2rem;
   border-radius: 0.5rem;
   font-size: 1rem;
+}
+.arrow_btn:active {
+  background-color: #d8ee33;
 }
 .bottom_text,
 .bottom_amount {
@@ -180,4 +184,8 @@ body {
 }
 .out {
   color: red;
+}
+.sort {
+  border: none;
+  cursor: pointer;
 }
