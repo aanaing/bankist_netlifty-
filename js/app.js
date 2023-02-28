@@ -16,6 +16,15 @@ const btn_transfer = document.querySelector(".btn_transfer");
 const text_amount = document.querySelector(".text_amount");
 const text_transfer = document.querySelector(".text_transfer");
 
+const confirm_user_text = document.querySelector(".confirm_user_text");
+const confirm_pin_text = document.querySelector(".confirm_pin_text");
+
+const loan_arrow = document.querySelector(".loan_arrow");
+const amount_btn = document.querySelector(".amount_btn");
+
+const btn_loan = document.querySelector(".btn_loan");
+const loan_text = document.querySelector(".loan_text");
+
 acc1 = {
   owner: "Aye Win",
   interest: 0.7,
@@ -102,6 +111,42 @@ btn_transfer.addEventListener("click", (e) => {
     );
 });
 
+// ---------------------------- CLOSE ACCOUNT -----------------
+btn_loan.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    currentAccount.username === confirm_user_text.value &&
+    currentAccount.pin === Number(confirm_pin_text.value)
+  ) {
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    accounts.splice(index, 1);
+    main_container.style.opacity = 0;
+  }
+});
+
+// --------------------- LOAN ACCOUNT ----------------
+loan_arrow.addEventListener("click", (e) => {
+  e.preventDefault();
+  const loanAmount = Number(loan_text.value);
+  if (
+    loanAmount > 0 &&
+    currentAccount.movements.some((mov) => mov >= loanAmount * 0.1)
+  ) {
+    currentAccount.movements.push(loanAmount);
+
+    //update UI
+    updateUI();
+
+    //clear loan input field
+    loan_text.value = "";
+    loan_text.blur();
+  } else {
+    alert("You must have under 10% of loan amount");
+  }
+});
+
 //UPDATE UI
 const updateUI = () => {
   addTransitions(currentAccount); // add transition
@@ -110,6 +155,19 @@ const updateUI = () => {
   calculateOutcome(currentAccount); // calculate outcome
   caluculateIncome(currentAccount); // calculae income
 };
+
+//to add total amount of movements having in all accounts
+
+const totalAmount = accounts
+  .map((acc) => acc.movements)
+  .flat()
+  .reduce((accr, mov) => accr + mov, 0);
+
+//******* OR *****
+const totalAmt = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((accr, mov) => accr + mov, 0);
+console.log(totalAmt);
 
 //----------------- Calculate Balance ----------------
 const calculateBalance = (currentAccount) => {
@@ -170,3 +228,16 @@ const addTransitions = (currentAccount) => {
     //left_grid.insertAdjacentHTML("beforeend", html);
   });
 };
+
+//sort()
+// const name = ["tun tun", "zaw zaw", "aye aye", "ma ma"];
+// console.log(name.sort());
+// const num = [21, 12, -13, -45, 30];
+// console.log(num.sort());
+
+// const numb = (a, b) => {
+//   if (a > b) return "positive value";
+//   if (a < b) return "negative value";
+// };
+
+// ********************sort() cannot work in num array it only affect in string ************

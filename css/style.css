@@ -60,7 +60,7 @@ body {
 }
 .grid--2--cols {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 50% 50%;
   padding: 0 3rem;
   gap: 1rem;
 }
@@ -97,7 +97,7 @@ body {
 /* RIGHT PART */
 .operation {
   border-radius: 1rem;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
   color: #333;
   margin-bottom: 1rem;
   font-size: 1.8rem;
@@ -109,7 +109,7 @@ body {
 
 .btn_box {
   display: grid;
-  grid-template-columns: 8rem 8rem 1fr;
+  grid-template-columns: 7rem 7rem 1fr;
   gap: 1rem;
   margin-top: 1rem;
   /* transition: all 3s; */
