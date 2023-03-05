@@ -25,6 +25,8 @@ const amount_btn = document.querySelector(".amount_btn");
 const btn_loan = document.querySelector(".btn_loan");
 const loan_text = document.querySelector(".loan_text");
 
+const sort = document.querySelector(".sort");
+
 acc1 = {
   owner: "Aye Win",
   interest: 0.7,
@@ -123,7 +125,7 @@ btn_loan.addEventListener("click", (e) => {
     );
     accounts.splice(index, 1);
     main_container.style.opacity = 0;
-  }
+  } else alert("username and password not same.Please try again");
 });
 
 // --------------------- LOAN ACCOUNT ----------------
@@ -167,7 +169,7 @@ const totalAmount = accounts
 const totalAmt = accounts
   .flatMap((acc) => acc.movements)
   .reduce((accr, mov) => accr + mov, 0);
-console.log(totalAmt);
+console.log("total amount of mov", totalAmt);
 
 //----------------- Calculate Balance ----------------
 const calculateBalance = (currentAccount) => {
@@ -211,10 +213,14 @@ const caluculateIncome = (currentAccount) => {
 };
 
 //--------------- ADD TRANSITIONS ---------------
-const addTransitions = (currentAccount) => {
-  console.log(currentAccount.movements);
+const addTransitions = (currentAccount, sort = false) => {
   left_grid.innerHTML = ""; // delete already content
-  currentAccount.movements.forEach((mov, index) => {
+
+  const sortedMov = sort
+    ? currentAccount.movements.slice().sort((a, b) => a - b)
+    : currentAccount.movements;
+
+  sortedMov.forEach((mov, index) => {
     const type = mov > 0 ? "deposit" : "widthdrawl";
     const html = `
     <div class="row">
@@ -222,12 +228,64 @@ const addTransitions = (currentAccount) => {
        <button class="text ${type}">${index + 1} ${type}</button>
        <span class="date">12/03/2020</span>
      </div>
-     <p>${mov}</p>
+     <p>${mov} €</p>
    </div>`;
     left_grid.insertAdjacentHTML("afterbegin", html);
     //left_grid.insertAdjacentHTML("beforeend", html);
   });
 };
+
+//sorting movements
+let sorted = false;
+sort.addEventListener("click", (e) => {
+  e.preventDefault();
+  addTransitions(currentAccount, !sorted);
+  sorted = !sorted;
+});
+
+// total mount of mov > 0
+const totalAmountOfdeposit = accounts
+  .flatMap((mov) => mov.movements)
+  .filter((f) => f > 0)
+  .reduce((accr, r) => accr + r, 0);
+console.log("total Amount Of deposit : ", totalAmountOfdeposit);
+
+//length of  deposit value at least 1000
+const depositValueAtLeast1000 = accounts
+  .flatMap((mov) => mov.movements)
+  //  .filter((f) => f >= 1000).length;
+  .reduce((accr, r) => (r >= 1000 ? accr + 1 : accr), 0);
+
+console.log(
+  "lenght of deposit value at least 1000 : ",
+  depositValueAtLeast1000
+);
+
+const sum = accounts
+  .flatMap((mov) => mov.movements)
+  .reduce(
+    (accr, r) => {
+      r > 0 ? (accr.deposit += r) : (accr.widthdraw += r);
+      return accr;
+    },
+    {
+      deposit: 0,
+      widthdraw: 0,
+    }
+  );
+console.log(sum);
+
+//this is a nice title => This Is a Nice Title
+const makeTitle = (titleText) => {
+  const exception = ["a", "an", "the", "with", "but", "or", "on", "in"];
+  const title = titleText
+    .toLowerCase()
+    .split(" ")
+    .map((m) => (exception.includes(m) ? m : m[0].toUpperCase() + m.slice(1)))
+    .join(" ");
+  console.log("title text: ", title);
+};
+makeTitle("tHis iS a nice title");
 
 //sort()
 // const name = ["tun tun", "zaw zaw", "aye aye", "ma ma"];
@@ -236,8 +294,17 @@ const addTransitions = (currentAccount) => {
 // console.log(num.sort());
 
 // const numb = (a, b) => {
-//   if (a > b) return "positive value";
+//   if (a > b) return "positive value";// same (a-b)
 //   if (a < b) return "negative value";
 // };
 
 // ********************sort() cannot work in num array it only affect in string ************
+
+// const arr = new Array(1, 2, 3, 4, 5);
+// const array = [1, 2, 3, 4, 5];
+
+// const a = arr.fill(9, 0, 4);
+// console.log(a);
+
+// const b = Array.from({ length: 3 }, () => 4);
+// console.log(b);
